@@ -23,3 +23,6 @@ import Route from '@ioc:Adonis/Core/Route'
 Route.on('/').render('welcome')
 
 Route.get('usuarios', 'UsuariosController.index')
+Route.get('receitas', 'ReceitasController.index')
+Route.get('ingredientes', 'IngredientesController.index')
+Route.get('medidas', 'MedidasController.index')
