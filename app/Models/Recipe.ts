@@ -6,9 +6,12 @@ import {
   belongsTo,
   manyToMany,
   ManyToMany,
+  hasMany,
+  HasMany,
 } from '@ioc:Adonis/Lucid/Orm'
 import User from './User'
 import Restriction from './Restriction'
+import RecipeIngredient from './RecipeIngredient'
 
 export default class Recipe extends BaseModel {
   @column({ isPrimary: true })
@@ -37,4 +40,7 @@ export default class Recipe extends BaseModel {
 
   @manyToMany(() => Restriction)
   public restrictions: ManyToMany<typeof Restriction>
+
+  @hasMany(() => RecipeIngredient)
+  public recipeIngredients: HasMany<typeof RecipeIngredient>
 }
