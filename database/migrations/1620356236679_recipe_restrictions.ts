@@ -1,7 +1,7 @@
 import BaseSchema from '@ioc:Adonis/Lucid/Schema'
 
-export default class RecipeRestrictions extends BaseSchema {
-  protected tableName = 'recipe_restrictions'
+export default class RecipeRestriction extends BaseSchema {
+  protected tableName = 'recipe_restriction'
 
   public async up() {
     this.schema.createTable(this.tableName, (table) => {
