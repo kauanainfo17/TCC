@@ -1,6 +1,14 @@
 import { DateTime } from 'luxon'
-import { BaseModel, column, BelongsTo, belongsTo } from '@ioc:Adonis/Lucid/Orm'
+import {
+  BaseModel,
+  column,
+  BelongsTo,
+  belongsTo,
+  manyToMany,
+  ManyToMany,
+} from '@ioc:Adonis/Lucid/Orm'
 import User from './User'
+import Restriction from './Restriction'
 
 export default class Recipe extends BaseModel {
   @column({ isPrimary: true })
@@ -26,4 +34,7 @@ export default class Recipe extends BaseModel {
 
   @belongsTo(() => User)
   public user: BelongsTo<typeof User>
+
+  @manyToMany(() => Restriction)
+  public restrictions: ManyToMany<typeof Restriction>
 }
