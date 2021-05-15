@@ -1,6 +1,6 @@
 import BaseSeeder from '@ioc:Adonis/Lucid/Seeder'
 import Ingredient from 'App/Models/Ingredient'
-import Recipe from 'App/Models/Recipe'
+//import Recipe from 'App/Models/Recipe'
 import Restriction from 'App/Models/Restriction'
 import Unit from 'App/Models/Unit'
 import User from 'App/Models/User'
