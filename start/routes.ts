@@ -20,8 +20,7 @@
 
 import Route from '@ioc:Adonis/Core/Route'
 
-Route.on('/').render('welcome')
+Route.on('/').render('inicial').as('root')
 Route.on('/User').render('user')
 Route.on('/Receita').render('recipe')
-Route.on('/Inicial').render('inicial')
 Route.on('/Acesso').render('acesso')
