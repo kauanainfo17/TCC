@@ -1,6 +1,9 @@
 import BaseSchema from '@ioc:Adonis/Lucid/Schema'
 
 export default class Recipes extends BaseSchema {
+  static all() {
+    throw new Error('Method not implemented.')
+  }
   protected tableName = 'recipes'
 
   public async up() {

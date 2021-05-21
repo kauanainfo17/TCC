@@ -30,4 +30,15 @@
     </div>
   </div>
 </nav> 
+
+
+<div class="card" style="width: 18rem;">
+  <img src="imagens/bolo.jpg" class="card-img-top" alt="bolo">  
+  <div class="card-body">
+    @each(recipe in recipes)
+    <a href="" class="card-link">{{ recipe.name }}</a>
+    @endeach
+  </div>
+</div>
+
 @endsection
