@@ -7,7 +7,11 @@ import Route from '@ioc:Adonis/Core/Route'
 // Route.on('/Acesso').render('acesso')
 
 //Route.get('Receita', 'RecipesController.index')
+
 Route.get('Acesso','AuthenticationController.index')
 Route.get('User' , 'UsersController.index')
-Route.get('', 'RecipesController.index')
-Route.get('/Showreceita','RecipesController.show')
+
+// Route.get('/Showreceita','RecipesController.show')
+
+Route.get('/', 'RecipesController.index')
+Route.resource('recipes', 'RecipesController')

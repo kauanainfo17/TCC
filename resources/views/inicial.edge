@@ -36,7 +36,11 @@
   <img src="imagens/bolo.jpg" class="card-img-top" alt="bolo">  
   <div class="card-body">
     @each(recipe in recipes)
-    <a href="" class="card-link">{{ recipe.name }}</a>
+    <li>
+      <a href="{{ route('recipes.show', { id: recipe.id }) }}" class="card-link">
+        {{ recipe.name }}
+      </a>
+    </li>
     @endeach
   </div>
 </div>
