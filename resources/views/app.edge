@@ -53,13 +53,13 @@
                   <div class= "d-flex justify-content-end" >
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                       <li class="nav-item">
-                        <a class="nav-link" href="#">Acessar</a>
+                        <a class="nav-link" href="{{ route( 'auth.login' ) }}">Acessar</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="#">Cadastrar</a>
+                        <a class="nav-link" href="{{ route('auth.index') }}">Cadastrar</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="#">Nova Receita</a>
+                        <a class="nav-link" href="{{ route('recipes.create') }}">Nova Receita</a>
                       </li>
                     </ul>
                   </div>

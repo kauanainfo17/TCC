@@ -1,6 +1,6 @@
 @layout('app')
 @section('subtitle')
-    <p class="corpo">Cadastro de um novo usuário.
+    <p class="corpo">Novo cadastro.
         Venha participar da nossa familia!
     </p>
 @endsection
@@ -10,38 +10,17 @@
         <div class=" d-flex justify-content-center">
             <div class="p-5" >
                 <div class="mb-3">
+                    <label for="InputNome" class="form-label">Nome </label>
+                    <input type="text" class="form-control" name="name" id="InputNome" aria-describedby="Nome">
+                </div>
+                <div class="mb-3">
                     <label for="InputEmail" class="form-label">Email </label>
-                    <input type="email" class="form-control" id="InputEmail" aria-describedby="emailHelp">
+                    <input type="email" class="form-control" name="email" id="InputEmail" aria-describedby="emailHelp">
                 </div>
 
                 <div class="mb-3">
                     <label for="InputPassword" class="form-label">Senha</label>
-                    <input type="password" class="form-control" id="InputPassword1">
-                </div>
-                <div class="p-2 row ">
-                    <div class="col-5">
-                        <select class="form-select" aria-label="Default select">
-                            <option selected>Restrição alimenticia</option>
-                            <option value="1">Camarão</option>
-                            <option value="2">Milho</option>
-                            <option value="3">Trigo</option>
-                        </select>
-                    </div>
-                    <div class="mr-2 col-1">
-                        <button type="submit" class="bi bi-plus"></button>
-                    </div>
-                    <div class="ml-2 col-5">
-                        <select class="form-select" aria-label="Default select">
-                            <option selected>Restrição de dieta</option>
-                            <option value="1">Intolerancia a lactose</option>
-                            <option value="2">Origem animal</option>
-                            <option value="3">Intolerancia a glutem</option>
-                        </select>
-                    </div>
-                    <div class="col-1">
-                        <button type="submit"  class="bi bi-plus" > </button>
-                    </div>
-                </div>
+                    <input type="password" class="form-control" name="password" id="InputPassword1">
                 <div class="p-3 d-flex justify-content-center">
                     <button type="submit">Cadastrar</button>
                 </div>
@@ -49,11 +28,5 @@
         </div>
       </form>
 
-      <ul>
-          oi
-          @each(user in users)
-            <li>{{user.name}}</li>
-          @endeach
-      </ul>
 
  @endsection   

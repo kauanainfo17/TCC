@@ -1,0 +1,35 @@
+@layout('app')
+@section('subtitle')
+    <p class="corpo">Cadastro de umarestrição.
+        Sinto muito pela sua perda
+    </p>
+@endsection
+
+@section('content')
+
+    <div class="p-2 row ">
+        <div class="col-5">
+            <select name="ingredients" class="form-select" aria-label="Default select">
+                <option selected>Restrição alimenticia</option>
+                @each(ingrediente in ingredientes)
+                    <option value="{{ ingrediente.id }}">{{ ingrediente.name }}</option>
+                @endeach
+            </select>
+        </div>
+        <div class="mr-2 col-1">
+            <button type="submit" class="bi bi-plus"></button>
+        </div>
+        <div class="ml-2 col-5">
+            <select class="form-select" aria-label="Default select">
+                <option selected>Restrição de dieta</option>
+                <option value="1">Intolerancia a lactose</option>
+                <option value="2">Origem animal</option>
+                <option value="3">Intolerancia a glutem</option>
+            </select>
+        </div>
+        <div class="col-1">
+            <button type="submit"  class="bi bi-plus" > </button>
+        </div>
+    </div>
+
+@endsection

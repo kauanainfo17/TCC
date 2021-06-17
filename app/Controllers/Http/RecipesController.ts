@@ -17,9 +17,24 @@ export default class RecipesController {
     return view.render('create', { ingredientes, unidades })
   }
 
-  public async store ({ request }: HttpContextContract) {
-    const data = request.only(['name', 'instructions', 'recipeIngredients'])
-    const recipe = Recipe.create(data)
+  public async store ({ request, response, params }: HttpContextContract) {
+    const data = request.only(['name', 'instructions'])
+    await Recipe.create(data)
+    // vou pegar o id
+    const id = await Recipe.query().select('id').as('last_id')
+    // cadastra no recipeingredient o id ingredientes, o id da receita, o id do Usuario e o a quantidade
+    this.storeIng(id)
+    response.redirect().toRoute('root')
+  }
+
+  public async storeIng ({ request, response, params }: HttpContextContract) {
+    const data = request.only(['recipeIngredients', 'unitId'])
+    await Recipe.create(data)
+    // vou pegar o id
+
+    // cadastra no recipeingredient o id ingredientes, o id da receita, o id do Usuario e o a quantidade
+
+    response.redirect().toRoute('root')
   }
 
   public async show ({view, params}: HttpContextContract) {

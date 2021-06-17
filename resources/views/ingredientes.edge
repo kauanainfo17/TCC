@@ -1,0 +1,34 @@
+@layout('app')
+@section('subtitle')
+    <p class="corpo">Cadastro de um novo usuário.
+        Venha participar da nossa familia!
+    </p>
+@endsection
+
+@section('content')
+
+    <div class="row">
+        <div class="mb-3 col-4">
+            <select name="recipeIngredients" class="form-select" aria-label="Default select">
+                <option selected>Ingrediente</option>
+                @each(ingrediente in ingredientes)
+                    <option value="{{ ingrediente.id }}">{{ ingrediente.name }}</option>
+                @endeach
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="Quantidade" class="form-label">Quantidade </label>
+            <input type="text" class="form-control" name="quantity" id="quantity" aria-describedby="Quantidade">
+        </div>
+        <div class="col-4">
+            <select name="unitId" class="form-select" aria-label="Default select">
+                <option selected>Unidade</option>
+                @each(unidade in unidades)
+                    <option value="{{ unidade.id }}">{{ unidade.name }}</option>
+                @endeach
+            </select>
+        </div>
+        
+    </div>
+
+@endsection
