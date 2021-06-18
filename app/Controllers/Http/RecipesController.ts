@@ -4,8 +4,22 @@ import Recipe from 'App/Models/Recipe'
 import Unit from 'App/Models/Unit'
 
 export default class RecipesController {
-  public async index({ view }: HttpContextContract) {
-    const recipes = await Recipe.all()
+  public async index({ view, params, request }: HttpContextContract) {
+    let recipes
+    const search = request.input('search')
+    if (search) {
+      recipes = await Recipe.query()
+        .where('name', 'like', `%${search}%`)
+        .orWhereHas('recipeIngredients', (recipeIngredientsQuery) => {
+          recipeIngredientsQuery.whereHas('ingredient', (ingredientQuery) => {
+            ingredientQuery.where('name', 'like', `%${search}%`)
+          })
+        })
+
+      //recipes = await Recipe.query().where('name', 'like', `%${search}%`)
+    } else {
+      recipes = await Recipe.all()
+    }
     return view.render('recipes/index', { recipes })
   }
 

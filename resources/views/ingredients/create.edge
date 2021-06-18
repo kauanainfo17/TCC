@@ -49,8 +49,8 @@
                     </select>
                 </div>
                 <div class="d-flex justify-content-around p-5">
-                     <button class="p-2" type="submit">Cadastrar</button>
-                     <button class="p-2" onclick=" {{ route('root')}} " type="submit">Finalizar</button>
+                    <button class="p-2" type="submit">Cadastrar</button>
+                    <a class="btn btn-primary" href="{{ route('recipes.show', { id: recipe.id }) }}">Finalizar</a>
                 </div>
             </div>
         </form>
