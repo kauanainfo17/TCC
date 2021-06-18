@@ -1,12 +1,9 @@
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import User from 'App/Models/User'
 
-export default class AuthenticationController {
-  public async index ({ view }: HttpContextContract) {
-    return view.render('user')
-  }
-
-  public async create ({}: HttpContextContract) {
+export default class AuthController {
+  public async register({ view }: HttpContextContract) {
+    return view.render('auth/register')
   }
 
   public async store({ request, response, auth, session }: HttpContextContract) {
@@ -22,7 +19,7 @@ export default class AuthenticationController {
   }
 
   public async login({ view }: HttpContextContract) {
-    return view.render('acesso')
+    return view.render('auth/login')
   }
 
   public async verify({ request, response, auth }: HttpContextContract) {
@@ -34,17 +31,5 @@ export default class AuthenticationController {
   public async logout({ response, auth }: HttpContextContract) {
     await auth.logout()
     response.redirect().toRoute('root')
-  }
-
-  public async show ({}: HttpContextContract) {
-  }
-
-  public async edit ({}: HttpContextContract) {
-  }
-
-  public async update ({}: HttpContextContract) {
-  }
-
-  public async destroy ({}: HttpContextContract) {
   }
 }

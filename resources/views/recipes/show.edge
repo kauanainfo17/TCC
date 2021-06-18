@@ -1,0 +1,39 @@
+@layout('app')
+@section('subtitle')
+    <p class="corpo"> Essa opção parece deliciosa!!
+    </p>    
+@endsection
+
+@section('content')
+    <style>
+        img{
+            max-width: 40%;
+            height: auto;
+        }
+    </style>
+    <div class="p-2 row">
+        <div class="col-6">
+            <div class="d-flex justify-content-center">
+                <img src="/imagens/aberta.png" class="" alt="bolo">
+            </div>
+            <div class="d-flex justify-content-center">
+                <h1>{{ recipe.name }}</h1>
+            </div>
+        </div>
+        <div class="col-6">
+            <h2>Ingredientes:</h2>
+            <div class="d-flex">
+                <ul class="">
+                    @each(recipeIngredient in recipe.recipeIngredients)
+                        <li class="">{{ await recipeIngredient.fullDescription() }}</li>
+                    @endeach
+                </ul>
+            </div>
+            <h2>Modo de preparo:</h2>
+            <div class="d-flex">
+                <p>{{ recipe.instructions }}</p>
+            </div>
+        </div>
+    </div>
+
+@endsection

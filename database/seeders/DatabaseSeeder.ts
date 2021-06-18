@@ -17,10 +17,15 @@ export default class DatabaseSeederSeeder extends BaseSeeder {
       { name: 'Fermento' },
       { name: 'Ovo' },
     ])
-    const unit = await Unit.create({ name: 'Unidade' })
+    const unit = await Unit.create({ name: 'Xícara' })
+    await Unit.createMany([{ name: 'Colher' }, { name: 'Grama' }, { name: 'ml' }])
     const recipe = await user
       .related('recipes')
-      .create({ name: 'Bole de milho', instructions: 'Misturar tudo e colocar no forno', image:'aqui tem uma imagem' })
+      .create({
+        name: 'Bole de milho',
+        instructions: 'Misturar tudo e colocar no forno',
+        image: 'aqui tem uma imagem',
+      })
     await recipe.related('recipeIngredients').createMany(
       ingredients.map((i) => {
         return {

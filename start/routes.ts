@@ -7,13 +7,14 @@ import Route from '@ioc:Adonis/Core/Route'
 Route.get('/', 'RecipesController.index').as('root')
 Route.resource('recipes', 'RecipesController')
 
+Route.resource('recipes.ingredients', 'IngredientsController')
+
 Route.get('User' , 'UsersController.index')
 Route.resource('users', 'UsersController')
 
-Route.get('Acesso','AuthenticationController.index').as('auth.index')
-Route.post('/Acesso', 'AuthenticationController.store').as('auth.store')
-Route.get('/user', 'AuthenticationController.login').as('auth.login')
-Route.post('/user', 'AuthenticationController.verify').as('auth.verify')
-Route.get('/logout', 'AuthenticationController.logout').as('auth.logout')
-
+Route.get('/register', 'AuthController.register').as('auth.register')
+Route.post('/register', 'AuthController.store').as('auth.store')
+Route.get('/login', 'AuthController.login').as('auth.login')
+Route.post('/login', 'AuthController.verify').as('auth.verify')
+Route.get('/logout', 'AuthController.logout').as('auth.logout')
 

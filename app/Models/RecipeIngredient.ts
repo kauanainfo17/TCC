@@ -34,4 +34,10 @@ export default class RecipeIngredient extends BaseModel {
 
   @belongsTo(() => Ingredient)
   public ingredient: BelongsTo<typeof Ingredient>
+
+  public async fullDescription(): Promise<String> {
+    await (this as RecipeIngredient).load('unit')
+    await (this as RecipeIngredient).load('ingredient')
+    return `${this.quantity} ${this.unit.name}${this.quantity === 1 ? '' : 's'} de ${this.ingredient.name}`
+  }
 }

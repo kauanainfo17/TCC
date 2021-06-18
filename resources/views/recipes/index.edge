@@ -6,6 +6,7 @@
 @endsection
 
 @section('content')
+
 <nav class="navbar navbar-expand-lg navbar-dark d-flex justify-content-center ">
   <div >
     <div class= "d-flex justify-content-end" >
@@ -31,18 +32,17 @@
   </div>
 </nav> 
 
-
-<div class="card" style="width: 18rem;">
-  <img src="imagens/bolo.jpg" class="card-img-top" alt="bolo">  
-  <div class="card-body">
-    @each(recipe in recipes)
-    <li>
-      <a href="{{ route('recipes.show', { id: recipe.id }) }}" class="card-link">
-        {{ recipe.name }}
-      </a>
-    </li>
-    @endeach
-  </div>
-</div>
-
+<div class= "row  d-flex justify-content-around p-3">
+  @each(recipe in recipes)
+    <div class="card col-3 p-3" style="width: 18rem;">
+      <div class="card-body">
+          <a href="{{ route('recipes.show', { id: recipe.id }) }}" class="card-link stretched-link text-dark">
+            <img src="imagens/fechada.jpg" class="card-img-top" alt="bolo"> 
+            
+          </a>
+          <p class="d-flex justify-content-center p-4">{{ recipe.name }}</p>
+      </div>
+    </div>
+   @endeach
+</div>  
 @endsection
